@@ -36,5 +36,10 @@ def upload_files_recursively(local_folder = local_root, remote_folder = remote_r
 			upload_files_recursively(local_folder_path, remote_folder_path, name)
 		else:
 			upload_file(name, path)
+	expected_remote_files = [remote_folder_path + "/" + name for name in os.listdir(local_folder_path)]
+	for remote_file in ftp.nlst(remote_folder_path):
+		if ".well-known" not in remote_file and remote_file not in expected_remote_files:
+			print(f"Deleting {remote_file} in {remote_folder_path}")
+			ftp.delete(remote_file)
 
 upload_files_recursively()
