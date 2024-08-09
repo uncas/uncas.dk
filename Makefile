@@ -1,5 +1,3 @@
-.PHONY: venv build upload deploy
-
 venv: .venv/touchfile
 
 .venv/touchfile: requirements.txt
