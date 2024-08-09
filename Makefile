@@ -1,2 +1,2 @@
 publish:
-	dotnet publish --runtime win-x86 --self-contained
+	dotnet publish uncas.dk --runtime win-x86 --self-contained
