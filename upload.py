@@ -1,5 +1,5 @@
+import datetime
 import os
-
 from dotenv import load_dotenv
 from ftplib import FTP
 
@@ -14,7 +14,17 @@ local_root = "uncas.dk/bin/Debug/net7.0/win-x86/publish"
 ftp = FTP(host)
 ftp.login(user, password)
 
+last_upload_file = "output/last_upload.txt"
+last_upload_time = None
+if os.path.exists(last_upload_file):
+	with open(last_upload_file) as f:
+		last_upload_time = float(f.read())
+
 def upload_file(file_name, file_path):
+	file_changed_time = os.path.getctime(file_path)
+	if last_upload_time and file_changed_time <= last_upload_time:
+		return
+	print("  Uploading file", file_name)
 	with open(file_path, "rb") as f:
 		ftp.storbinary(f"STOR {file_name}", f)
 
@@ -28,7 +38,7 @@ def upload_files_recursively(local_folder = local_root, remote_folder = remote_r
 			print(f"Creating folder {child_folder} in {remote_folder}")
 			ftp.cwd(remote_folder)
 			ftp.mkd(child_folder)
-	print(f"Uploading {local_folder_path} to {remote_folder_path}")
+	print(f"Uploading folder {local_folder_path} to {remote_folder_path}:")
 	for name in os.listdir(local_folder_path):
 		ftp.cwd(remote_folder_path)
 		path = os.path.join(local_folder_path, name)
@@ -43,3 +53,6 @@ def upload_files_recursively(local_folder = local_root, remote_folder = remote_r
 			ftp.delete(remote_file)
 
 upload_files_recursively()
+
+with open(last_upload_file, "w") as f:
+	f.write(str(datetime.datetime.now().timestamp()))
