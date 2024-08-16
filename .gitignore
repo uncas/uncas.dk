@@ -1,3 +1,16 @@
+.venv/*
 .env
-.vscode
-output/
+.vscode/*
+output/*
+
+# uncas.dk
+uncas.dk/bin/*
+uncas.dk/obj/*
+uncas.dk/appsettings.Production.json
+uncas.dk/appsettings.Development.json
+
+# uncas.dk/ClientApp
+uncas.dk/ClientApp/build/*
+uncas.dk/ClientApp/node_modules/*
+uncas.dk/ClientApp/.env.development
+uncas.dk/ClientApp/.env.development.local
