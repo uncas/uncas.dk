@@ -9,7 +9,7 @@ user = os.getenv("ftp_user")
 password = os.getenv("ftp_password")
 host = os.getenv("ftp_host")
 remote_root = os.getenv("ftp_remote_root")
-local_root = "uncas.dk/bin/Debug/net7.0/win-x86/publish"
+local_root = "uncas.dk/bin/Release/net8.0/win-x86/publish"
 
 ftp = FTP(host)
 ftp.login(user, password)

@@ -6,7 +6,7 @@ export class Home extends Component {
   render() {
     const projects = [
       {
-        name: "Blog at olelynge.com",
+        name: "Blog på olelynge.com",
         url: "https://olelynge.com"
       },
       {
@@ -22,7 +22,7 @@ export class Home extends Component {
       <div className="App">
         <header className="App-header">
           <h2>
-            Welcome to uncas.dk
+            Velkommen til uncas.dk
           </h2>
           {projects.map(project => (
             <div>
