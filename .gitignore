@@ -2,6 +2,7 @@
 .env
 .vscode/*
 output/*
+.DS_Store
 
 # uncas.dk
 uncas.dk/bin/*

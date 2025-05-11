@@ -11,7 +11,7 @@
     "uncas.dk": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7017;http://localhost:5230",
+      "applicationUrl": "http://localhost:5230",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
