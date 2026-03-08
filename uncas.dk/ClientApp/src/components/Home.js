@@ -6,10 +6,6 @@ export class Home extends Component {
   render() {
     const projects = [
       {
-        name: "Blog på olelynge.com",
-        url: "https://olelynge.com"
-      },
-      {
         name: "Repositories",
         url: "https://github.com/uncas"
       },
